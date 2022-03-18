@@ -1,3 +1,19 @@
 <nav>
-    This is the navbar
+    <ul>
+        <li>
+            <%= link_to "BawSaq", root_path %>
+        </li>
+        <% if !current_user %>
+            <li>
+                <%= link_to "Sign in", new_user_registration_path %>
+            </li>
+            <li>
+                <%= link_to "Create an account", new_user_session_path %>
+            </li>
+        <% else %>
+            <li>
+                <%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete %> 
+            </li>
+        <% end %>
+    </ul>
 </nav>
