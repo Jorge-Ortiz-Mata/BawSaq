@@ -182,6 +182,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.3.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.8.0)
+      launchy (>= 2.2, < 3)
     loofah (2.15.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -332,6 +336,7 @@ DEPENDENCIES
   iex-ruby-client
   importmap-rails
   jbuilder
+  letter_opener
   pg
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
