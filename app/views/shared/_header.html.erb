@@ -5,10 +5,10 @@
         </li>
         <% if !current_user %>
             <li>
-                <%= link_to "Sign in", new_user_registration_path %>
+                <%= link_to "Sign in", new_user_session_path %>
             </li>
             <li>
-                <%= link_to "Create an account", new_user_session_path %>
+                <%= link_to "Create an account", new_user_registration_path %>
             </li>
         <% else %>
             <li>
