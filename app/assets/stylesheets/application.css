@@ -21,6 +21,28 @@
 }
 
 .mainSection div{
-    margin: 0px auto 0pc auto;
+    margin: 0px auto 0px auto;
     text-align: center;
+}
+
+.formComponents, .cardSection, .cardStock{
+    display: flex;
+    flex-direction: row;
+}
+
+.formComponents div{
+    margin: auto auto auto auto;
+}
+
+.cardStock{
+    box-shadow: 0px 0px 5px 2px #dddddd;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto auto auto auto;
+}
+
+.cardDescription{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 5px;
 }
