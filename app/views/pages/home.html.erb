@@ -1,36 +1,51 @@
-<h1>BawSaq Tracker App.</h1>
+<main class="mainSection">
+    <div>
+        <h1>BawSaq Tracker App.</h1>
+        <div style="width: 600px;">
+            <%= line_chart({
+                    "Monday" => 116372, 
+                    "Tuesday" => 23562,
+                    "Wednesday" => 421222,
+                    "Thursday" => 433572,
+                    "Friday" => 1141623,
+                    "Saturday" => 232972,
+                    "Sunday" => 930462,            
+                    }, 
+                    xtitle: "Time", ytitle: "Population") %>
+        </div>
+    </div>
 
-<div style="width: 500px;">
-    <%= line_chart({
-            "Monday" => 1672, 
-            "Tuesday" => 562,
-            "Wednesday" => 1222,
-            "Thursday" => 3572,
-            "Friday" => 1423,
-            "Saturday" => 972,
-            "Sunday" => 3062,            
-            }, 
-            xtitle: "Time", ytitle: "Population") %>
-</div>
-
-
-<div>
-    <p>
-        This is the BawSaq Tracker App.
-    </p>
-    <p>
-        As a user, you can track stocks from many companies
-        around the world, such as Microsoft, Google, Apple.
-        Amazon, etc.
-    </p>
-    <p>
-        Sign up and enjoy. 
-        Feel free to navigate in this app.
-    </p>
-    <p>
-        Jorge Ortiz
-    </p>
-    <p>
-        <%= link_to "Sign up", new_user_session_path, class:"waves-effect waves-light btn" %>
-    </p>
-</div>
+    <div>
+        <p>
+            This is the BawSaq Tracker App. <br>
+            As a user, you can track stocks from many companies
+            around the world, such as Microsoft, Google, Apple.
+            Amazon, etc.
+        </p>
+        <% if !current_user %>
+        <p>
+            Sign up and enjoy. 
+            Feel free to navigate in this app.
+        </p>
+        <p>
+            Jorge Ortiz
+        </p>
+        <p>
+            <%= link_to "Sign in", new_user_session_path, class:"waves-effect waves-light btn" %>
+        </p>
+        <% else %>
+        <p>
+            Welcome <b><%= "#{current_user.email}" %></b>
+        </p>
+        <p>
+            Haven't you started?
+        </p>
+        <p>
+            Click on the button below and start tracking stocks from different companies around the world.
+        </p>
+        <p>
+            <%= link_to "Track stocks.", stocks_search_path, class:"waves-effect waves-light btn" %>
+        </p>
+        <% end %>
+    </div>
+</main>

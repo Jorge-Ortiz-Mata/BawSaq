@@ -1,6 +1,10 @@
 <nav>
     <div class="nav-wrapper">
-        <%= link_to "BawSaq", root_path, class:"brand-logo" %>
+        <ul class="left hide-on-med-and-down">
+            <li>
+                <%= link_to "BawSaq", root_path, class:"brand-logo" %>
+            </li>
+        </ul>
         <ul class="right hide-on-med-and-down">
         <% if !current_user %>
             <li>
@@ -11,7 +15,13 @@
             </li>
         <% else %>
             <li>
-                <%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete %> 
+                <%= link_to "Search stock", stocks_search_path, class:"" %>
+            </li>
+            <li>
+                <%= link_to "#{current_user.email}", edit_user_registration_path %>
+            </li>
+            <li>
+                <%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete, class:"waves-effect waves-light btn-small" %> 
             </li>
         <% end %>
         </ul>
