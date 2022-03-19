@@ -36,6 +36,10 @@ gem 'devise'
 
 gem 'iex-ruby-client'
 
+gem "chartkick"
+
+gem 'materialize-sass'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

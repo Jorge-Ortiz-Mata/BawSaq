@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>BawSaq Tracker App.</h1>
+
+<div style="width: 500px;">
+    <%= line_chart({
+            "Monday" => 1672, 
+            "Tuesday" => 562,
+            "Wednesday" => 1222,
+            "Thursday" => 3572,
+            "Friday" => 1423,
+            "Saturday" => 972,
+            "Sunday" => 3062,            
+            }, 
+            xtitle: "Time", ytitle: "Population") %>
+</div>
+
+
+<div>
+    <p>
+        This is the BawSaq Tracker App.
+    </p>
+    <p>
+        As a user, you can track stocks from many companies
+        around the world, such as Microsoft, Google, Apple.
+        Amazon, etc.
+    </p>
+    <p>
+        Sign up and enjoy. 
+        Feel free to navigate in this app.
+    </p>
+    <p>
+        Jorge Ortiz
+    </p>
+    <p>
+        <%= link_to "Sign up", new_user_session_path, class:"waves-effect waves-light btn" %>
+    </p>
+</div>
