@@ -10,45 +10,41 @@
             In order to do that, you must type the <b>Company Symbol</b> and click on the submit button. <br>
             (Ej. Microsoft => MSFT)
         </p>
+        <p>
+            In order to get the Companies' symbols, you can click in the link below to get more information. <br>
+            <%= link_to "Companies symbols", "https://iextrading.com/trading/eligible-symbols", :target => "_blank" %>
+        </p>
     </div>
 </div>
+
 <br>
-<section class="cardSection">
-    <div class="cardStock">
-        <div>
-            <img src="https://storage.googleapis.com/iex/api/logos/AMZN.png" alt="Amazon" class="circle responsive-img" width="50px" > <!-- notice the "circle" class -->
-        </div>
-        <div>
-            <p class="cardDescription">
-                Company Symbol: <b>AMZN</b><br>
-                Company name: <b>Amazon</b>
-            </p>
-        </div>
-    </div>
-    <div class="cardStock">
-        <div>
-            <img src="https://storage.googleapis.com/iex/api/logos/MSFT.png" alt="Microsoft" class="circle responsive-img" width="50px"> <!-- notice the "circle" class -->
-        </div>
-        <div>
-            <p class="cardDescription">
-                Company Symbol: <b>MSFT</b><br>
-                Company name: <b>Microsoft</b>
-            </p>
-        </div>
-    </div>
-    <div class="cardStock">
-        <div>
-            <img src="https://storage.googleapis.com/iex/api/logos/AAPL.png" alt="Apple" class="circle responsive-img" width="50px"> <!-- notice the "circle" class -->
-        </div>
-        <div>
-            <p class="cardDescription">
-                Company Symbol: <b>AAPL</b><br>
-                Company name: <b>Apple</b>
-            </p>
-        </div>
-    </div>
-</section>
+
+<%= render 'stocks/cardexamples' %>
+
 <br>
-<div>
-    <%= render 'stocks/form' %>
-</div>
+
+<%= render 'stocks/form' %>
+
+<% if !@company.nil? %>
+    <div class= "centerContent">
+        <p>
+            You look up for: <b> <%= params[:stock_symbol] %> </b>
+        </p>
+    </div>
+    <div class= "centerContent">
+        <p>
+            <%= render 'stocks/result', company: @company %>
+        </p>
+    </div>
+<% else %>
+    <div class= "centerContent">
+        <h4>
+            Right now, there's nothing to show.
+        </h4>
+        <p>
+            In the form above, type a company symbol in order to get more information. <br>
+            If you don't know what can you look up, click on the next link. <br>
+            <%= link_to "Companies symbols", "https://iextrading.com/trading/eligible-symbols", :target => "_blank" %>
+        </p>
+    </div>
+<% end %>

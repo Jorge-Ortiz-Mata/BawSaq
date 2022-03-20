@@ -7,8 +7,16 @@ class StocksController < ApplicationController
   
 
   def get_stock
-    @stock_symbol = params[:stock_symbol]
-    redirect_to stocks_search_path, notice: "You look up for: #{@stock_symbol}"
+    if params[:stock_symbol].present?
+      @company = Stock.look_up(params[:stock_symbol])
+      if !@company.nil?
+        render 'stocks/search'
+      else
+        redirect_to stocks_search_path, alert: "We couldn't find nothing with that symbol."
+      end
+    else
+      redirect_to stocks_search_path, alert: "Enter at least one value."
+    end
   end
   
 end

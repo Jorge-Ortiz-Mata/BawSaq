@@ -25,7 +25,7 @@
     text-align: center;
 }
 
-.formComponents, .cardSection, .cardStock{
+.formComponents, .cardSection, .cardStock, .formLookUpCompany{
     display: flex;
     flex-direction: row;
 }
@@ -45,4 +45,21 @@
     font-size: 14px;
     margin-left: 10px;
     margin-right: 5px;
+}
+
+.centerContent{
+    text-align: center;
+}
+
+.formLookUpCompany{
+    justify-content: center;
+}
+
+.formField, .formSubmit{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.formSubmit{
+    margin-left: 20px;
 }

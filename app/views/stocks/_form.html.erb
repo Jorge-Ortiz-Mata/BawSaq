@@ -1,13 +1,11 @@
-<div>
-    <%= form_with(url: get_stock_path, method: :get) do |form| %>
-        <div class="formComponents">
-            <div class="input-field col s6">
-                <%= form.label "Stock Symbol", class:"validate" %>
-                <%= form.text_field :stock_symbol %>
-            </div>
-            <div>
-                <%= form.submit "Submit", class:"btn waves-effect waves-light" %>
-            </div>
+<%= form_with(url: get_stock_path, method: :get) do |form| %>
+    <section class="formLookUpCompany">
+        <div class="formField">
+            <%= form.label "Stock Symbol" %>
+            <%= form.text_field :stock_symbol %>
         </div>
-    <% end %>
-</div>
+        <div class="formSubmit">
+            <%= form.submit "Submit", class:"btn waves-effect waves-light" %>
+        </div>
+    </section>
+<% end %>
