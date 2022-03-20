@@ -1,20 +1,27 @@
-<div>
-    <p>
-        <%= company[:symbol] %>
-    </p>
-    <p>
-        <%= company[:name] %>
-    </p>
-    <p>
-        <%= company[:ceo] %>
-    </p>
-    <p>
-        <%= company[:value] %>
-    </p>
-    <p>
-        <%= company[:latest_price] %>
-    </p>
-    <p>
-        <%= company[:percent] %>
-    </p>
-</div>
+<section class="resultCard centered">
+    <table>
+        <thead>
+            <tr>
+                <th>Company's symbol</th>
+                <th>Company's name</th>
+                <th>Company CEO</th>
+                <th>Company value (USD)</th>
+                <th>Company current value</th>
+                <th>Company percent</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><b><%= company[:symbol] %></b></td>
+                <td><b><%= company[:name] %></b></td>
+                <td><b><%= company[:ceo] %></b></td>
+                <td><b><%= company[:value] %></b></td>
+                <td><b><%= company[:latest_price] %></b></td>
+                <td><b><%= company[:percent] %></b></td>
+                <td><span class="new badge red">Some action</span><br><span class="new badge green">Some action</span></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

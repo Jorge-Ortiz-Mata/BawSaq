@@ -63,3 +63,20 @@
 .formSubmit{
     margin-left: 20px;
 }
+
+.resultCard{
+    padding: 50px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 5px 2px #dddddd;
+}
+
+.userSearchStock{
+    margin: 50px;
+    padding: 30px;
+    font-size: 17px;
+    background-color: #e7ffec;
+    color: #026016;
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px 2px #dddddd;
+}
