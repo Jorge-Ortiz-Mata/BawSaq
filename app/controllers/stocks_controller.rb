@@ -4,6 +4,18 @@ class StocksController < ApplicationController
 
   def search
   end
+
+  def stocks
+    @stocks = current_user.stocks
+  end
+
+  def create
+    @company = params[:company]
+    @stock = Stock.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:company_latest_price], company_percent: @company[:percent])
+    @stock.user_id = current_user.id
+    @stock.save
+    redirect_to stocks_path, notice: "You are tracking this stock: #{@company}"
+  end
   
 
   def get_stock

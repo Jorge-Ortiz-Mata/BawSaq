@@ -1,0 +1,25 @@
+<section>
+    <div>
+        <h2>
+            My stocks
+        </h2>
+    </div>
+    <div>
+        <p>
+            There are the stocks that you are tracking at the moment.
+        </p>
+    </div>
+    <div>
+        <% @stocks.each do |stock| %>
+            <p>
+                <%= stock.company_symbol %>
+            </p>
+            <p>
+                <%= stock.company_name %>
+            </p>
+            <p>
+                <%= stock.company_latest_price %>
+            </p>
+        <% end %>
+    </div>
+</section>

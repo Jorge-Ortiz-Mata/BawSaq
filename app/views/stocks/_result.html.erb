@@ -20,7 +20,7 @@
                 <td><b><%= company[:value] %></b></td>
                 <td><b><%= company[:latest_price] %></b></td>
                 <td><b><%= company[:percent] %></b></td>
-                <td><span class="new badge red">Some action</span><br><span class="new badge green">Some action</span></td>
+                <td><%= button_to 'Track stock', add_stock_path(company: company), method: :post, class:"new badge green" %></td>
             </tr>
         </tbody>
     </table>
