@@ -13,6 +13,14 @@ class Stock < ApplicationRecord
         publishable_token: Rails.application.credentials.iex_p_token,
         secret_token: Rails.application.credentials.iex_p_token,
         endpoint: 'https://sandbox.iexapis.com/v1')
+
+        #def self.get_latest_prices(symbol, client)
+        #  array = Array.new
+        #  client.chart(symbol).each do |obj|
+        #    array.push(obj.close)
+        #  end
+        #  return array
+        #end
         
         begin
           {
@@ -22,6 +30,7 @@ class Stock < ApplicationRecord
             value: client.advanced_stats(user_symbol).enterprise_value_dollar, 
             latest_price: client.quote(user_symbol).latest_price, 
             percent: client.quote(user_symbol).change_percent_s,
+            #chart: Stock.get_latest_prices(user_symbol, client)
           }
         rescue
           return nil
@@ -30,6 +39,23 @@ class Stock < ApplicationRecord
 
     def self.verify(user, symbol)
       user.stocks.where("company_symbol like ?", symbol).first.present?
+    end
+
+    def self.get_prices(symbol)
+      client = IEX::Api::Client.new(
+        publishable_token: Rails.application.credentials.iex_p_token,
+        secret_token: Rails.application.credentials.iex_p_token,
+        endpoint: 'https://sandbox.iexapis.com/v1')
+
+        begin 
+          array = Array.new
+          client.chart(symbol).each do |obj|
+            array.push(obj.close)
+          end
+          return array
+        rescue
+          return nil
+        end
     end
 
 end

@@ -15,7 +15,7 @@
  */
 
 
-.mainSection{
+.mainSection, .articleGraph{
     display: flex;
     flex-direction: column;
 }
@@ -30,7 +30,7 @@
     flex-direction: row;
 }
 
-.formComponents div{
+.graphTitle, .formComponents div{
     margin: auto auto auto auto;
 }
 
@@ -105,4 +105,36 @@
 .colorStockRed{
     font-weight: 700;
     color: #bd0303;
+}
+
+.divGraph{
+    margin: auto auto auto auto;
+    box-shadow: 0px 0px 5px 2px #dddddd;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.trackStockButton, .removeStockButton, .updateStockButton{
+    text-align: center;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 2px #dddddd;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trackStockButton{
+    background-color: #c8ffd4;
+    color: #026016;
+}
+
+.removeStockButton{
+    background-color: #ffc8c8;
+    color: #600202;
+}
+
+.updateStockButton{
+    background-color: #c8f9ff;
+    color: #024f60;
 }

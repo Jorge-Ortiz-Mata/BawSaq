@@ -8,5 +8,6 @@
 <% else %>
     <td><span class="colorStockRed"><%= stock.company_percent %></span></td>
 <% end %>
-<td><%= button_to "Remove", remove_stock_path(stock: stock.id), method: :delete, class:"new badge red" %></td>
-<td><%= button_to "See more", see_more_path(stock: stock.id), method: :patch, class:"new badge blue" %></td>
+<td><%= button_to "Remove", remove_stock_path(stock: stock.id), method: :delete, class:"removeStockButton" %></td>
+<td><%= button_to "Update", see_more_path(stock: stock.id), method: :patch, class:"updateStockButton" %></td>
+<td><%= link_to "Historical prices", get_prices_path(stock: stock.id), class:"updateStockButton" %></td>

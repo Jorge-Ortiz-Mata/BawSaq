@@ -11,12 +11,18 @@ class StocksController < ApplicationController
 
   def create
     @company = params[:company]
-    #@stock_array = Array.new
-    #@stock_array = @company[:chart]
-    @stock = Stock.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:latest_price], company_percent: @company[:percent])
-    @stock.user_id = current_user.id
+    @stock = current_user.stocks.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:latest_price], company_percent: @company[:percent])
     @stock.save
     redirect_to stocks_path, notice: "You started to track: #{@company[:name]}"
+  end
+
+  def get_prices
+    @stocks = current_user.stocks
+    @stock = Stock.find(params[:stock])
+    @stock_prices = Stock.get_prices(@stock.company_symbol)
+    @stock_max = @stock_prices.max() + 1
+    @stock_min = @stock_prices.min() - 1
+    render 'stocks/stocks'
   end
   
 

@@ -10,9 +10,6 @@
             There are the stocks that you are tracking at the moment.
         </p>
     </div>
-    <div>
-        <%= render 'stocks/graph' %>
-    </div>
 </section>
 
 <section>
@@ -27,7 +24,8 @@
                     <th>Latest price</th>
                     <th>Percent</th>
                     <th>Action</th>
-                    <th>Info</th>
+                    <th>Update</th>
+                    <th>Historical prices</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,15 +38,11 @@
         </table>
     </div>
 </section>
-
+<br>
 <section>
-    <% if !@stock_array.nil? %>
-        <p>
-            true.
-        </p>
-    <% else %>
-        <p>
-            false.
-        </p>
+    <% if @stock_prices %>
+    <article>
+        <%= render 'stocks/graph', prices: @stock_prices %>
+    </article>
     <% end %>
 </section>

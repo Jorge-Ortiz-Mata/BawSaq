@@ -1,12 +1,28 @@
-<div style="width: 600px;">
-    <%= line_chart({
-        "Monday" => 116372, 
-        "Tuesday" => 23562,
-        "Wednesday" => 421222,
-        "Thursday" => 433572,
-        "Friday" => 1141623,
-        "Saturday" => 232972,
-        "Sunday" => 930462,            
-        }, 
-        xtitle: "Time", ytitle: "Population") %>
-</div>
+<section  class="articleGraph">
+    <div class="graphTitle">
+        <h4><b><%= @stock.company_name %></b> latest prices.</h4>
+    </div>
+
+    <div class="divGraph">
+        <div style="width: 700px;">
+            <%= line_chart({
+                "15 days ago" => prices[4], 
+                "14 days ago" => prices[5],
+                "13 days ago" => prices[6],
+                "12 days ago" => prices[7],
+                "11 days ago" => prices[8],
+                "10 days ago" => prices[9],
+                "9 days ago" => prices[10],            
+                "8 days ago" => prices[11],            
+                "7 days ago" => prices[12],            
+                "6 days ago" => prices[13],            
+                "5 days ago" => prices[14],            
+                "4 days ago" => prices[15],            
+                "3 days ago" => prices[16],            
+                "2 days ago" => prices[17],            
+                "1 day ago" => prices[18],            
+                }, 
+            xtitle: "Time", ytitle: "Latest prices", min: @stock_min, max: @stock_max, download: true) %>
+        </div>  
+    </div>
+</section>
