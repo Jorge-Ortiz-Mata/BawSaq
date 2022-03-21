@@ -1,0 +1,7 @@
+<td><%= stock.company_symbol %></td>
+<td><%= stock.company_name %></td>
+<td><%= stock.company_ceo %></td>
+<td><%= stock.company_value_usd %></td>
+<td><%= stock.company_latest_price %></td>
+<td><%= stock.company_percent %></td>
+<td><%= button_to "Remove", remove_stock_path(stock: stock.id), method: :delete, class:"new badge red" %></td>

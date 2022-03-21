@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_19_163626) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_21_012953) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_163626) do
     t.string "company_symbol"
     t.string "company_name"
     t.string "company_ceo"
-    t.decimal "company_value_usd"
+    t.string "company_value_usd"
     t.decimal "company_latest_price"
     t.decimal "company_percent"
     t.integer "user_id", null: false

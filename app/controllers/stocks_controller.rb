@@ -11,10 +11,10 @@ class StocksController < ApplicationController
 
   def create
     @company = params[:company]
-    @stock = Stock.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:company_latest_price], company_percent: @company[:percent])
+    @stock = Stock.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:latest_price], company_percent: @company[:percent])
     @stock.user_id = current_user.id
     @stock.save
-    redirect_to stocks_path, notice: "You are tracking this stock: #{@company}"
+    redirect_to stocks_path, notice: "You started to track: #{@company[:name]}"
   end
   
 
@@ -29,6 +29,11 @@ class StocksController < ApplicationController
     else
       redirect_to stocks_search_path, alert: "Enter at least one value."
     end
+  end
+
+  def destroy
+      @stock = params[:stock]
+      redirect_to stocks_path, alert: "You delete: #{@stock}"
   end
   
 end

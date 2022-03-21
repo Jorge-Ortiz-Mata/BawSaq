@@ -9,17 +9,29 @@
             There are the stocks that you are tracking at the moment.
         </p>
     </div>
+</section>
+
+<section>
     <div>
-        <% @stocks.each do |stock| %>
-            <p>
-                <%= stock.company_symbol %>
-            </p>
-            <p>
-                <%= stock.company_name %>
-            </p>
-            <p>
-                <%= stock.company_latest_price %>
-            </p>
-        <% end %>
+        <table class="centered">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Ceo</th>
+                    <th>Value (USD)</th>
+                    <th>Latest price</th>
+                    <th>Percent</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @stocks.each do |stock| %>
+                    <tr>
+                        <%= render 'stocks/stock', stock: stock %>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
 </section>
