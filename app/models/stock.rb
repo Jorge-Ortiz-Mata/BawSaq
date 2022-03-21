@@ -28,4 +28,8 @@ class Stock < ApplicationRecord
         end
     end
 
+    def self.verify(user, symbol)
+      user.stocks.where("company_symbol like ?", symbol).first.present?
+    end
+
 end

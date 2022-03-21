@@ -20,7 +20,11 @@
                 <td><b><%= company[:value] %></b></td>
                 <td><b><%= company[:latest_price] %></b></td>
                 <td><b><%= company[:percent] %></b></td>
-                <td><%= button_to 'Track stock', add_stock_path(company: company), method: :post, class:"new badge green" %></td>
+                <% if !Stock.verify(current_user, company[:symbol]) %>
+                    <td><%= button_to 'Track stock', add_stock_path(company: company), method: :post, class:"new badge green" %></td>
+                <% else %>
+                    <td><span class="new badge red">You're already tracking this stock.</span></td>
+                <% end %>
             </tr>
         </tbody>
     </table>
