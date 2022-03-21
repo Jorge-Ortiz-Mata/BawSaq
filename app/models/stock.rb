@@ -1,6 +1,9 @@
 class Stock < ApplicationRecord
   belongs_to :user
 
+  after_create_commit {broadcast_prepend_to "stocks"}
+  after_update_commit {broadcast_replace_to "stocks"}
+  after_destroy_commit {broadcast_remove_to "stocks"}
   
 
   #private

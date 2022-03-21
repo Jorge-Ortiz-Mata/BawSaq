@@ -32,8 +32,9 @@ class StocksController < ApplicationController
   end
 
   def destroy
-      @stock = params[:stock]
-      redirect_to stocks_path, alert: "You delete: #{@stock}"
+      @stock = Stock.find(params[:stock])
+      @stock.destroy
+      redirect_to stocks_path, alert: "You've deleted: #{@stock.company_symbol}, #{@stock.company_name}"
   end
   
 end
