@@ -10,6 +10,9 @@
             There are the stocks that you are tracking at the moment.
         </p>
     </div>
+    <div>
+        <%= render 'stocks/graph' %>
+    </div>
 </section>
 
 <section>
@@ -36,4 +39,16 @@
             </tbody>
         </table>
     </div>
+</section>
+
+<section>
+    <% if !@stock_array.nil? %>
+        <p>
+            true.
+        </p>
+    <% else %>
+        <p>
+            false.
+        </p>
+    <% end %>
 </section>

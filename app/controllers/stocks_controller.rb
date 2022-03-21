@@ -11,6 +11,8 @@ class StocksController < ApplicationController
 
   def create
     @company = params[:company]
+    #@stock_array = Array.new
+    #@stock_array = @company[:chart]
     @stock = Stock.new(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:latest_price], company_percent: @company[:percent])
     @stock.user_id = current_user.id
     @stock.save
@@ -29,6 +31,13 @@ class StocksController < ApplicationController
     else
       redirect_to stocks_search_path, alert: "Enter at least one value."
     end
+  end
+
+  def update
+    @stock_update = Stock.find(params[:stock])
+    @company = Stock.look_up(@stock_update.company_symbol)
+    @stock_update.update(company_symbol: @company[:symbol], company_name: @company[:name], company_ceo: @company[:ceo], company_value_usd: @company[:value], company_latest_price: @company[:latest_price], company_percent: @company[:percent])
+    redirect_to stocks_path, notice: "Stock updated. Stock: #{@stock_update.company_symbol}"
   end
 
   def destroy

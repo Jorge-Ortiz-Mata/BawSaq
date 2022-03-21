@@ -21,7 +21,7 @@ class Stock < ApplicationRecord
             ceo: client.company(user_symbol).ceo,
             value: client.advanced_stats(user_symbol).enterprise_value_dollar, 
             latest_price: client.quote(user_symbol).latest_price, 
-            percent: client.quote(user_symbol).change_percent_s
+            percent: client.quote(user_symbol).change_percent_s,
           }
         rescue
           return nil

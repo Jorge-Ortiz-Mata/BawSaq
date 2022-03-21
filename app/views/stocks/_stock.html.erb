@@ -3,6 +3,10 @@
 <td><%= stock.company_ceo %></td>
 <td><%= stock.company_value_usd %></td>
 <td><%= stock.company_latest_price %></td>
-<td><%= stock.company_percent %></td>
+<% if stock.company_percent >= 0 %>
+    <td><span class="colorStockGreen"><%= stock.company_percent %></span></td>
+<% else %>
+    <td><span class="colorStockRed"><%= stock.company_percent %></span></td>
+<% end %>
 <td><%= button_to "Remove", remove_stock_path(stock: stock.id), method: :delete, class:"new badge red" %></td>
-<td><%= button_to "See more", '#', method: :get, class:"new badge blue" %></td>
+<td><%= button_to "See more", see_more_path(stock: stock.id), method: :patch, class:"new badge blue" %></td>
