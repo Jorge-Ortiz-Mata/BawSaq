@@ -6,21 +6,11 @@ class Stock < ApplicationRecord
   after_destroy_commit {broadcast_remove_to "stocks"}
   
 
-  #private
-
     def self.look_up(user_symbol)
       client = IEX::Api::Client.new(
         publishable_token: Rails.application.credentials.iex_p_token,
         secret_token: Rails.application.credentials.iex_p_token,
         endpoint: 'https://sandbox.iexapis.com/v1')
-
-        #def self.get_latest_prices(symbol, client)
-        #  array = Array.new
-        #  client.chart(symbol).each do |obj|
-        #    array.push(obj.close)
-        #  end
-        #  return array
-        #end
         
         begin
           {
@@ -30,7 +20,6 @@ class Stock < ApplicationRecord
             value: client.advanced_stats(user_symbol).enterprise_value_dollar, 
             latest_price: client.quote(user_symbol).latest_price, 
             percent: client.quote(user_symbol).change_percent_s,
-            #chart: Stock.get_latest_prices(user_symbol, client)
           }
         rescue
           return nil
